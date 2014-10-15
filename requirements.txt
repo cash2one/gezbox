@@ -4,5 +4,4 @@
 #descr          gezibox 测试项目依赖库 安装指令:pip install -r requirements.txt
 
 django==1.4.9
-django-piston
 MySQL-python

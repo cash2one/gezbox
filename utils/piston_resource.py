@@ -3,12 +3,14 @@ Created on 2014-10-15
 
 __author__: quxl
 '''
+import logging
 import piston
 from piston.utils import FormValidationError
 from django.http import HttpResponse
 from piston.resource import Resource
 from piston.emitters import Emitter
 
+log = logging.getLogger("root")
 class PistonResource(Resource):
     '''
     classdocs
@@ -21,7 +23,6 @@ class PistonResource(Resource):
 
 
     def form_validation_response(self, e, request,em_format):
-        print 'in form_validation_response 1'
         try:
             emitter, ct = Emitter.get(em_format)
             fields = self.handler.fields
@@ -30,8 +31,10 @@ class PistonResource(Resource):
             result.content = "Invalid output format specified '%s'." % em_format
             return result
         serialized_errors = dict((key, [unicode(v) for v in values])
-                                for key,values in e.form.errors.items())
+                                 for key,values in e.form.errors.items())
+        # log.debug("test_hint: serialized_errors ")
         srl = emitter(serialized_errors, piston.handler.typemapper, self.handler, fields, False)
         stream = srl.render(request)
+        # log.debug("test_hint:stream s%"%stream)
         resp = HttpResponse(stream, mimetype=ct, status=400)
         return resp

@@ -1,15 +1,15 @@
 # Django settings for gezbox project.
 import traceback
-
+import  os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-
+base_dir = os.path.abspath(os.path.dirname(__file__))
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
 MANAGERS = ADMINS
-
+DEFAULT_REG_PASSWORD='1234'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -111,6 +111,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(base_dir, 'templates'),
+    'templates'
 )
 
 INSTALLED_APPS = (
@@ -124,6 +126,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'feng'
 )
 
 # try to load my_settings.py
