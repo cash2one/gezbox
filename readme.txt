@@ -12,6 +12,11 @@
 #只有走注册接口 注册的用户 才会产生 储蓄账户信息，syncdb 时 产生的超级管理员 是不具备这方面信息，实在经理和时间不够，否则改造syncdb
 #命令也可完成
 
+如果是本地 则 将 {{host}} 替换为  localhost:8080
+
+如果用过postman  则可以导入如下地址
+https://www.getpostman.com/collections/6b103a4fe19759d608f7
+
 接口地址:
 注册      http://{{host}}/api/accounts/login/
            参数:username 用户名
