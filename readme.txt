@@ -48,3 +48,10 @@ https://www.getpostman.com/collections/6b103a4fe19759d608f7
 
 supervisor 没怎么用过，初步了解，是用来守护进程用的，防止进程挂掉。如果有需要可以深入了解研究
 
+另外：在使用123feng.com 的时候发现个小问题，描述如下：
+在申请成为风先生后，点击下载android 客户端 地址 貌似错了，
+旧的地址为：http://api.appatom.com:5555/downloads/apps/883/android/latest-package?app_type=deliver
+
+猜测地址是不是为：http://new-api.123feng.com:5555/downloads/apps/883/android/latest-package?app_type=deliver
+
+还有就是申请成功后：页面内：#become_deliver css 有问题，在mac 13寸小屏幕上显示不全
