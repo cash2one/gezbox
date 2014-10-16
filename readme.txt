@@ -12,7 +12,7 @@
 #只有走注册接口 注册的用户 才会产生 储蓄账户信息，syncdb 时 产生的超级管理员 是不具备这方面信息，实在经理和时间不够，否则改造syncdb
 #命令也可完成
 
-如果是本地 则 将 {{host}} 替换为  localhost:8080
+如果是本地运行 则 将 {{host}} 替换为  localhost:8080
 
 如果用过postman  则可以导入如下地址
 https://www.getpostman.com/collections/6b103a4fe19759d608f7
@@ -34,7 +34,7 @@ https://www.getpostman.com/collections/6b103a4fe19759d608f7
 
 获取我的订单 http://{{host}}/api/feng/orders/
 
-接受订单    http://{{host}}/api/orders/(?P<order_id>\d+)/accept/
+接受订单    http://{{host}}/api/feng/orders/(?P<order_id>\d+)/accept/
 
 
 在生产环境中主要通过uwsgi  和 nginx 进行连接
@@ -42,7 +42,7 @@ https://www.getpostman.com/collections/6b103a4fe19759d608f7
 
 在nginx 里配置了 负载均衡的机器。可以根据机器能里配置nginx 工作进程数
 
-如果mysql 的的读写操作成为 接口瓶颈，可以考虑采用 redis 内存数据库 作为主数据库的方式，提高相应速度。
+如果mysql 的的读写操作成为 接口瓶颈，可以考虑采用 redis 内存数据库 作为主数据库的方式，提高响应速度。
 但是这得等到具有一定业务量之后再考虑实施。
 
 
